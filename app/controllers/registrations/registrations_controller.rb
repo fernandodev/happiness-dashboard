@@ -1,11 +1,11 @@
 class Registrations::RegistrationsController < Devise::RegistrationsController
-# before_filter :configure_sign_up_params, only: [:create]
-# before_filter :configure_account_update_params, only: [:update]
+  before_filter :configure_sign_up_params, only: [:create]
+  # before_filter :configure_account_update_params, only: [:update]
 
   # POST /resource
-  def create
-    super
-  end
+  # def create
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit
@@ -33,21 +33,36 @@ class Registrations::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  def configure_sign_up_params
-    devise_parameter_sanitizer.for(:sign_up) << :company
+  def resource_nested_hash
+    { company_attributes: {} }
   end
 
-  def configure_account_update_params
-    devise_parameter_sanitizer.for(:account_update) << :company
+  def build_resource(hash=nil)
+    self.resource = resource_class.new_with_session(hash || resource_nested_hash, session)
   end
+
+  def configure_sign_up_params
+    devise_parameter_sanitizer.for(:sign_up) do |devise|
+      devise.permit(
+        :email,
+        :password,
+        :password_confirmation,
+        { company_attributes: [:name] }
+      )
+    end
+  end
+
+  # def configure_account_update_params
+  #   devise_parameter_sanitizer.for(:account_update) << :company
+  # end
 
   def sign_up_params
     devise_parameter_sanitizer.sanitize(:sign_up)
   end
 
-  def account_update_params
-    devise_parameter_sanitizer.sanitize(:account_update)
-  end
+  # def account_update_params
+  #   devise_parameter_sanitizer.sanitize(:account_update)
+  # end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
