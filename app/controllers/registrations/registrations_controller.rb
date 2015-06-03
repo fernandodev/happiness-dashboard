@@ -33,12 +33,14 @@ class Registrations::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  def resource_nested_hash
-    { company_attributes: {} }
+  def build_nested_attributes(hash)
+    hash[:company_attributes] = {}
+    hash
   end
 
   def build_resource(hash=nil)
-    self.resource = resource_class.new_with_session(hash || resource_nested_hash, session)
+    hash = build_nested_attributes hash || {}
+    self.resource = resource_class.new_with_session(hash, session)
   end
 
   def configure_sign_up_params
