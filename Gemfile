@@ -15,6 +15,7 @@ gem 'devise', '~> 3.5.1'
 gem 'twitter-bootstrap-rails', '~> 3.2.0'
 
 gem 'simple_form', '~> 3.0'
+gem 'nested_form', '~> 0.3'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
