@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="panel panel-primary devise-box">
+      <div class="panel-heading">
+        <div class="panel-title"><h2 class="devise-box-title"><b>Sign In</b></h2></div>
+      </div>
+      <div class="panel-body">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :email, required: false, autofocus: true, placeholder: 'user@domain.com' %>
+            <%= f.input :password, required: false, placeholder: '********' %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Log in" %>
+          </div>
+        <% end %>
+        <br/>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
