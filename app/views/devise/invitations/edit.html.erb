@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="panel panel-primary devise-box">
+      <div class="panel-heading">
+        <div class="panel-title"><h2 class="devise-box-title"><b><%= t 'devise.invitations.edit.header' %></b></h2></div>
+      </div>
+      <div class="panel-body">
+
+        <%= simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put } do |f| %>
+          <%= devise_error_messages! %>
+          <%= f.hidden_field :invitation_token %>
+
+          <%= f.input :password %>
+          <%= f.input :password_confirmation %>
+
+          <%= f.button :submit, t("devise.invitations.edit.submit_button") %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
