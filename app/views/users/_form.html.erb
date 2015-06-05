@@ -1,0 +1,40 @@
+<%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :email %>
+  <%= error_span(@user[:email]) %>
+  <%= f.input :encrypted_password %>
+  <%= error_span(@user[:encrypted_password]) %>
+  <%= f.input :reset_password_token %>
+  <%= error_span(@user[:reset_password_token]) %>
+  <%= f.input :reset_password_sent_at %>
+  <%= error_span(@user[:reset_password_sent_at]) %>
+  <%= f.input :remember_created_at %>
+  <%= error_span(@user[:remember_created_at]) %>
+  <%= f.input :current_sign_in_at %>
+  <%= error_span(@user[:current_sign_in_at]) %>
+  <%= f.input :last_sign_in_at %>
+  <%= error_span(@user[:last_sign_in_at]) %>
+  <%= f.input :current_sign_in_ip %>
+  <%= error_span(@user[:current_sign_in_ip]) %>
+  <%= f.input :last_sign_in_ip %>
+  <%= error_span(@user[:last_sign_in_ip]) %>
+  <%= f.input :company_id %>
+  <%= error_span(@user[:company_id]) %>
+  <%= f.input :invitation_token %>
+  <%= error_span(@user[:invitation_token]) %>
+  <%= f.input :invitation_created_at %>
+  <%= error_span(@user[:invitation_created_at]) %>
+  <%= f.input :invitation_sent_at %>
+  <%= error_span(@user[:invitation_sent_at]) %>
+  <%= f.input :invitation_accepted_at %>
+  <%= error_span(@user[:invitation_accepted_at]) %>
+  <%= f.input :invitation_limit %>
+  <%= error_span(@user[:invitation_limit]) %>
+  <%= f.input :invited_by_id %>
+  <%= error_span(@user[:invited_by_id]) %>
+  <%= f.input :invited_by_type %>
+  <%= error_span(@user[:invited_by_type]) %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                users_path, :class => 'btn btn-default' %>
+<% end %>

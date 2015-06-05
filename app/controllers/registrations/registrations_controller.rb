@@ -39,7 +39,7 @@ class Registrations::RegistrationsController < Devise::RegistrationsController
   end
 
   def build_resource(hash=nil)
-    hash = build_nested_attributes hash || {}
+    hash = hash || build_nested_attributes({})
     self.resource = resource_class.new_with_session(hash, session)
   end
 
