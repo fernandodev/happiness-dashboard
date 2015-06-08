@@ -34,12 +34,12 @@ class Registrations::RegistrationsController < Devise::RegistrationsController
   protected
 
   def build_nested_attributes(hash)
-    hash[:company_attributes] = {}
+    hash[:company_attributes] = {} unless hash.has_key? :company_attributes
     hash
   end
 
   def build_resource(hash=nil)
-    hash = hash || build_nested_attributes({})
+    hash = build_nested_attributes(hash || {})
     self.resource = resource_class.new_with_session(hash, session)
   end
 

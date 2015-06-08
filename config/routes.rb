@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  #resources :users
+  resources :users,
+            only: [:new, :create, :index],
+            path: :invitations,
+            controller: :invitations,
+            as: :invitation
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
