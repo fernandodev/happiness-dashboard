@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :poll do
     company nil
-average "MyString"
+    average "MyString"
   end
-
 end

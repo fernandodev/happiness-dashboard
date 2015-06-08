@@ -1,0 +1,28 @@
+
+<%- model_class = User -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:invitation_sent_at) %></th>
+      <th><%= model_class.human_attribute_name(:last_sign_in_at) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.invitation_sent_at.try(:strftime, '%w %B %Y') %></td>
+        <td><%= user.last_sign_in_at.try(:strftime, '%w %B %Y') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_invitation_path,
+            :class => 'btn btn-primary' %>
+

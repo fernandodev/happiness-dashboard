@@ -12,4 +12,5 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :company
 
   scope :of_company, lambda { |company| where(company: company) }
+
 end
