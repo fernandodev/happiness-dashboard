@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
 
   it { validate_presence_of :company }
+  it { respond_to :polls }
+  it { respond_to :poll_members }
 
   describe 'scope of_company' do
     let(:company1) { create(:company) }

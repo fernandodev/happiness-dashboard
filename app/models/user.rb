@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          :invitable
 
   belongs_to :company
+  has_many :poll_members
+  has_many :polls, through: :poll_members
 
   validates_presence_of :company
 
