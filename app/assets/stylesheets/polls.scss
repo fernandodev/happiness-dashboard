@@ -1,3 +1,31 @@
 // Place all the styles related to the Polls controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.poll_users {
+  display: block;
+}
+
+.polls-gravatar-img {
+  width: 25px;
+  height: 25px;
+}
+
+.main-average {
+  text-align: center;
+}
+
+input.checkbox-gravatar {
+  margin-top: 20px;
+}
+
+.checkbox-gravatar-img {
+  float: left;
+  width: 50px;
+  height: 50px;
+}
+
+.checkbox-wrapper {
+  padding: 10px;
+  float: left;
+}
