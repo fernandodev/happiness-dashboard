@@ -76,6 +76,7 @@ GEM
     formatador (0.2.5)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    gravatar_image_tag (1.2.0)
     guard (2.6.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -232,6 +233,7 @@ DEPENDENCIES
   devise_invitable (~> 1.5.0)
   factory_girl_rails
   faker
+  gravatar_image_tag
   guard (~> 2.6.0)
   guard-rspec (~> 4.2.8)
   jbuilder (~> 2.0)
