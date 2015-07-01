@@ -12,6 +12,12 @@ Rails.application.routes.draw do
             as: :invitation
 
   resources :polls, only: [:index, :new, :create]
+  resources :votes, only: [:update] do
+    collection do
+      get 'vote'
+      get 'done'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

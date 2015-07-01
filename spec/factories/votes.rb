@@ -1,6 +1,7 @@
 FactoryGirl.define do
-  factory :poll_member do
+  factory :vote do
     association :poll
-    association :user
+    token nil
+    value nil
   end
 end
