@@ -34,3 +34,8 @@ group :development, :test do
   gem 'guard-rspec', '~> 4.2.8'#, require: false
   gem 'dotenv-rails'
 end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'puma'
+end
