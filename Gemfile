@@ -32,4 +32,5 @@ group :development, :test do
   gem 'thor', '~> 0.19.1'
   gem 'guard', '~> 2.6.0'
   gem 'guard-rspec', '~> 4.2.8'#, require: false
+  gem 'dotenv-rails'
 end
