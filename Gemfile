@@ -20,6 +20,7 @@ gem 'nested_form', '~> 0.3'
 
 gem 'gravatar_image_tag'
 gem 'puma'
+gem 'rack-timeout'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
