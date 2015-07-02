@@ -59,6 +59,9 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise_invitable (1.5.0)
+      actionmailer (>= 3.2.6, < 5)
+      devise (>= 3.2.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.5.2)
@@ -73,6 +76,7 @@ GEM
     formatador (0.2.5)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    gravatar_image_tag (1.2.0)
     guard (2.6.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -226,8 +230,10 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise (~> 3.5.1)
+  devise_invitable (~> 1.5.0)
   factory_girl_rails
   faker
+  gravatar_image_tag
   guard (~> 2.6.0)
   guard-rspec (~> 4.2.8)
   jbuilder (~> 2.0)

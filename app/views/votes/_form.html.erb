@@ -1,0 +1,14 @@
+<%= simple_form_for @vote do |f| %>
+  <%= f.input :value, collection: 1..5,
+              label: 'Rating',
+              item_wrapper_class: 'radio-wrapper',
+              as: :radio_buttons %>
+  <%= error_span(@vote[:value]) %>
+
+  <%= f.input :comment %>
+  <%= error_span(@vote[:comment]) %>
+
+  <%= f.hidden_field :token %>
+
+  <%= f.button :submit, 'Vote', :class => 'btn-primary' %>
+<% end %>

@@ -1,0 +1,21 @@
+// Place all the styles related to the votes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.vote_value {
+  display: table;
+}
+
+.radio-wrapper {
+  padding: 15px;
+  display: table-cell;
+
+}
+
+.vote_comment {
+  margin-top: 20px;
+}
+
+.vote-message {
+  text-align: center;
+}

@@ -1,0 +1,8 @@
+<%= simple_form_for @user, url: url_for(action: :create, controller: :invitations), method: :post, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :email %>
+  <%= error_span(@user[:email]) %>
+
+  <%= f.button :submit, 'Invite', :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                invitation_index_path, :class => 'btn btn-default' %>
+<% end %>

@@ -2,7 +2,22 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'registrations/registrations'
   }
+
   root 'home#index'
+
+  resources :users,
+            only: [:new, :create, :index],
+            path: :invitations,
+            controller: :invitations,
+            as: :invitation
+
+  resources :polls, only: [:index, :new, :create]
+  resources :votes, only: [:update] do
+    collection do
+      get 'vote'
+      get 'done'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

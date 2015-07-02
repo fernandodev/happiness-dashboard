@@ -1,0 +1,22 @@
+<%= simple_nested_form_for @poll, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <%= f.label :users %>
+  <%= f.association :users,
+                    label: '',
+                    collection: @poll.users.map { |u|
+                      [
+                        gravatar_image_tag(u.email, file_type: :png, alt: u.email, class: 'checkbox-gravatar-img'),
+                        { class: 'checkbox-gravatar' },
+                        u.id,
+                      ]
+                    },
+                    label_methods: :first,
+                    value_method: :last,
+                    include_hidden: false,
+                    item_wrapper_class: 'checkbox-wrapper',
+                    as: :check_boxes %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                polls_path, :class => 'btn btn-default' %>
+<% end %>
