@@ -8,6 +8,6 @@ class PollMailer < ApplicationMailer
           token: vote.token
         }
       })
-    mail(to: user.email, subject: 'Please answer satisfaction poll')
+    mail(to: user.email, subject: "[HAPPYNEL] Pesquisa de satisfação (#{Time.now.strftime "%d/%m/%Y"})")
   end
 end
