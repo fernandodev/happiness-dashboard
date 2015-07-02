@@ -19,6 +19,7 @@ gem 'simple_form', '~> 3.0'
 gem 'nested_form', '~> 0.3'
 
 gem 'gravatar_image_tag'
+gem 'puma'
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
@@ -37,5 +38,4 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'puma'
 end
