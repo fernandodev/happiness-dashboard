@@ -1,0 +1,16 @@
+<div>
+  <h3>HAPPY NEL INVITATION </h3>
+  <div>
+    <div>Hello <%= @user.email %>,</div>
+    <div>
+      You has been invited to answer satisfaction poll
+      of your team.
+
+      It's a ANONYMOUS voting poll although you can add
+      comments to your vote.
+
+      Answer here soon as possible:
+      <%= link_to 'vote here', @url %>
+    </div>
+  </div>
+</div>

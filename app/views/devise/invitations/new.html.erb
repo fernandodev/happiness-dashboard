@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="panel panel-primary devise-box">
+      <div class="panel-heading">
+        <div class="panel-title"><h2 class="devise-box-title"><b><%= t "devise.invitations.new.header" %></b></h2></div>
+      </div>
+      <div class="panel-body">
+
+        <%= simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post} do |f| %>
+          <%= devise_error_messages! %>
+
+        <% resource.class.invite_key_fields.each do |field| -%>
+          <%= f.input field %>
+        <% end -%>
+
+        <%= f.button :submit, t("devise.invitations.new.submit_button") %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

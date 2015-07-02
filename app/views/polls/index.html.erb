@@ -1,0 +1,40 @@
+<%- model_class = Poll -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <div class="main-average">
+    <h3><%= poll_average_stars(Poll.average_of_company current_user.company) %></h3>
+    <p><b><%=  Poll.average_of_company current_user.company %></b></p>
+  </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:users) %></th>
+      <th>Rating</th>
+      <th>Status</th>
+      <th>Remaining</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @polls.each do |poll| %>
+      <tr>
+        <td><%= created_at(poll.created_at.to_time) %></td>
+        <td>
+          <% poll.users.each do |user| %>
+            <%= gravatar_image_tag(user.email, file_type: :png, alt: user.email, class: 'polls-gravatar-img') %>
+          <% end %>
+        </td>
+        <td>
+          <b><%= poll.average.to_f %>/<%= poll_average_stars poll.average %></b>
+        </td>
+        <td><%= poll_status poll.remaining %></td>
+        <td><%= poll.remaining %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_poll_path,
+            :class => 'btn btn-primary' %>

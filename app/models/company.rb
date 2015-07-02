@@ -1,5 +1,6 @@
 class Company < ActiveRecord::Base
   has_many :users
+  has_many :polls
 
   validates_presence_of :name
 
