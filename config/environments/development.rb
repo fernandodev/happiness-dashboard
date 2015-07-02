@@ -18,11 +18,11 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => '127.0.0.1:3000' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => '259759d482cc57444',
-    :password => 'fb572ac95e5ad6',
+    :user_name => ENV['MAILTRAP_USER_NAME'],
+    :password => ENV['MAILTRAP_PASSWORD'],
     :address => 'mailtrap.io',
     :domain => 'mailtrap.io',
-    :port => '25',
+    :port => '2525',
     :authentication => :cram_md5
   }
 
