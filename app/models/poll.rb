@@ -20,17 +20,28 @@ class Poll < ActiveRecord::Base
     poll = Poll.new(user_ids: user_ids, company_id: company_id)
     if poll.save!
       poll.users.each_with_index do |u, i|
-        PollMailer.poll_invite(u, poll.votes[i]).deliver_now
+        PollMailer.poll_invite(u, poll.votes[i], poll.created_at).deliver_now
       end
     end
 
     poll
   end
 
+  def send_results_if_finished
+    return if remaining > 0
+    users.each do |user|
+      PollMailer.poll_result(user, average, comments, created_at).deliver_now
+    end
+  end
+
   def average
     average = 0
     average = votes.sum(:value) / votes.count(:value).to_f if votes.try(:count, :value) > 0
     average
+  end
+
+  def comments
+    votes.where.not(comment: nil).map{ |vote| vote.comment }
   end
 
   def remaining
