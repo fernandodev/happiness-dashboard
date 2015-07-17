@@ -4,6 +4,10 @@ class PollsController < ApplicationController
     @polls = current_company.polls
   end
 
+  def show
+    @poll = current_company.polls.find(params[:id])
+  end
+
   def new
     @poll = build_poll
   end

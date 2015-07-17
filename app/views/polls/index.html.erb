@@ -19,7 +19,7 @@
   <tbody>
     <% @polls.each do |poll| %>
       <tr>
-        <td><%= created_at(poll.created_at.to_time) %></td>
+        <td><%= link_to created_at(poll.created_at.to_time), poll_path(poll) %></td>
         <td>
           <% poll.users.each do |user| %>
             <%= gravatar_image_tag(user.email, file_type: :png, alt: user.email, class: 'polls-gravatar-img') %>

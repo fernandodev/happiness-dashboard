@@ -11,7 +11,7 @@ Rails.application.routes.draw do
             controller: :invitations,
             as: :invitation
 
-  resources :polls, only: [:index, :new, :create]
+  resources :polls, except: [:edit, :update, :destroy]
   resources :votes, only: [:update] do
     collection do
       get 'vote'
