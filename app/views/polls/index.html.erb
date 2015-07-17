@@ -3,7 +3,7 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
   <div class="main-average">
     <h3><%= poll_average_stars(Poll.average_of_company current_user.company) %></h3>
-    <p><b><%=  Poll.average_of_company current_user.company %></b></p>
+    <p><b><%=  number_with_precision Poll.average_of_company(current_user.company), precision: 1 %></b></p>
   </div>
 </div>
 <table class="table table-striped">
@@ -26,7 +26,7 @@
           <% end %>
         </td>
         <td>
-          <b><%= poll.average.to_f %>/<%= poll_average_stars poll.average %></b>
+          <b><%= number_with_precision(poll.average.to_f, precision: 1) %>/<%= poll_average_stars poll.average %></b>
         </td>
         <td><%= poll_status poll.remaining %></td>
         <td><%= poll.remaining %></td>
