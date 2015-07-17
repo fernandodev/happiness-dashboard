@@ -1,0 +1,17 @@
+<div>
+  <h3>HAPPY NEL RESULT </h3>
+  <div>
+    <div>Hello <%= @user.email %>,</div>
+    <div>
+      Is your team happy?
+
+      Happiness factor: <%= @average %>
+    </div>
+    <div><h4>Comments</h4></div>
+    <div>
+      <% @comments.each do |comment| %>
+        <div>- <%= comment %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

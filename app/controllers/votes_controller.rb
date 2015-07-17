@@ -7,7 +7,8 @@ class VotesController < ApplicationController
   end
 
   def update
-    @vote.save_rating!(permitted_params[:value])
+    @vote.save_rating!(permitted_params[:value], permitted_params[:comment])
+    @vote.poll.send_results_if_finished
     respond_with @vote, location: { action: :done }
   end
 

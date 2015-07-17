@@ -5,9 +5,9 @@ class Vote < ActiveRecord::Base
 
   before_validation :generate_token
 
-  def save_rating!(rating)
+  def save_rating!(rating, comment)
     if value.nil?
-      update(value: rating)
+      update(value: rating, comment: comment)
     else
       errors.add(:value, "You already have voted")
     end
