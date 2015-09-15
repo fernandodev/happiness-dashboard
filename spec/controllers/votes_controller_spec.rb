@@ -45,7 +45,8 @@ RSpec.describe VotesController, type: :controller do
         id: 1,
         vote: {
           value: '3',
-          token: 'TOKEN'
+          token: 'TOKEN',
+          comment: ''
         }
       }
     end
@@ -57,7 +58,7 @@ RSpec.describe VotesController, type: :controller do
     end
 
     it 'updates vote value' do
-      expect(vote).to receive(:save_rating!).with(params[:vote][:value])
+      expect(vote).to receive(:save_rating!).with(params[:vote][:value], params[:vote][:comment])
       expect(subject).to redirect_to action: :done
     end
   end
