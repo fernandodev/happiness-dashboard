@@ -21,9 +21,10 @@ RSpec.describe Poll, type: :model do
 
     context "at least one vote registered" do
       let(:rating) { 1 }
+      let(:comment) { '' }
 
       before do
-        poll.votes.first.save_rating! rating
+        poll.votes.first.save_rating! rating, comment
       end
 
       it "returns 1" do
@@ -43,9 +44,10 @@ RSpec.describe Poll, type: :model do
 
     context "at least one vote registered" do
       let(:rating) { 1 }
+      let(:comment) { '' }
 
       before do
-        poll.votes.first.save_rating! rating
+        poll.votes.first.save_rating! rating, comment
       end
 
       it "remains 1 votes" do
@@ -77,11 +79,11 @@ RSpec.describe Poll, type: :model do
 
     before do
       poll_1.votes.each do |vote|
-        vote.save_rating! 3
+        vote.save_rating! 3, ''
       end
 
       poll_2.votes.each do |vote|
-        vote.save_rating! 4
+        vote.save_rating! 4, ''
       end
     end
 

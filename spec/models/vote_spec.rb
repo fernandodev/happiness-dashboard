@@ -20,7 +20,7 @@ RSpec.describe Vote, type: :model do
 
     context "when rating is nil" do
       let(:vote) { create(:vote) }
-      subject { vote.save_rating! 4 }
+      subject { vote.save_rating! 4, '' }
 
       it "saves vote" do
         expect(subject.errors).to be_empty
@@ -29,7 +29,7 @@ RSpec.describe Vote, type: :model do
 
     context "when rating is not nil" do
       let(:vote) { create(:vote, value: 2) }
-      subject { vote.save_rating! 4 }
+      subject { vote.save_rating! 4, nil }
 
       it "doesn't save vote" do
         expect(subject.errors).not_to be_empty

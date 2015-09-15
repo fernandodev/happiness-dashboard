@@ -3,5 +3,6 @@ FactoryGirl.define do
     association :poll
     token nil
     value nil
+    comment nil
   end
 end
