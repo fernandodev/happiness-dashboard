@@ -13,7 +13,7 @@ RSpec.describe User, type: :model do
     let(:users_company_1) do
       [
         create(:user, company: company1),
-        create(:user, company: company1),
+        create(:user, company: company1, active: false),
         create(:user, company: company1),
       ]
     end
@@ -26,12 +26,19 @@ RSpec.describe User, type: :model do
       ]
     end
 
-    before do
-      @scoped_users = User.of_company company1
+    let!(:active_users_company_1) do
+      [
+        users_company_1[0],
+        users_company_1[2]
+      ]
     end
 
-    it "returns all users of company1" do
-      expect(@scoped_users).to match_array users_company_1
+    before do
+      @scoped_users = User.actives_of_company company1
+    end
+
+    it "returns all active users of company1" do
+      expect(@scoped_users).to match_array active_users_company_1
     end
   end
 end

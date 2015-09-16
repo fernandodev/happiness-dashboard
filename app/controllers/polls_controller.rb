@@ -26,7 +26,7 @@ class PollsController < ApplicationController
   end
 
   def build_poll
-    @poll = Poll.new users: current_company.users
+    @poll = Poll.new users: current_company.active_users
   end
 
 end
