@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users,
-            only: [:new, :create, :index],
+            only: [:new, :create, :index, :update],
             path: :invitations,
             controller: :invitations,
             as: :invitation
