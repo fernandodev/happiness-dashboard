@@ -13,10 +13,15 @@ class InvitationsController < ApplicationController
     respond_with @user, location: { action: :index }
   end
 
+  def update
+    @user = current_company.activate_user permitted_params[:email], permitted_params[:active]
+    respond_with @user, location: { action: :index }
+  end
+
   protected
 
   def permitted_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:email, :active)
   end
 
 end

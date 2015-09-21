@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe InvitationsController, type: :controller do
   let(:user) { create(:user) }
+  let(:user_company) { user.company }
 
   before do
     sign_in user
@@ -47,6 +48,31 @@ RSpec.describe InvitationsController, type: :controller do
     it 'renders mail invitation' do
       subject
       expect(response).to render_template("devise/mailer/invitation_instructions")
+    end
+  end
+
+  describe '#update' do
+    let(:params) do
+      {
+        id: user.id,
+        user: {
+          email: user.email
+        }
+      }
+    end
+
+    subject { put :update, params }
+
+    it 'revokes user access' do
+      params[:user][:active] = false
+      expect(user_company).to receive(:activate_user).with(params[:user][:email], false)
+      subject
+    end
+
+    it 'allows user access' do
+      params[:user][:active] = true
+      expect(user_company).to receive(:activate_user).with(params[:user][:email], true)
+      subject
     end
   end
 end

@@ -5,4 +5,12 @@ class Company < ActiveRecord::Base
   validates_presence_of :name
 
   accepts_nested_attributes_for :users
+
+  def active_users
+    users.actives
+  end
+
+  def activate_user(email, activate)
+    users.where(email: email).first.try(:update, active: activate)
+  end
 end

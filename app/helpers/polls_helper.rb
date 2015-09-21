@@ -24,4 +24,9 @@ module PollsHelper
   def poll_status(remaining)
     remaining > 0 ? RUNNING_STATUS : END_STATUS
   end
+
+  def poll_user_box(email)
+    gravatar_image_tag(email, file_type: :png, alt: email, :'class' => 'checkbox-gravatar-img') +
+    "<div class='poll-user-email'><b>#{email.gsub(/@.*/, '')}</b></div>".html_safe
+  end
 end
