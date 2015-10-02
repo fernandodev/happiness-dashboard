@@ -11,7 +11,7 @@ cp config/database.yml.sample config/database.yml
 rake db:create
 ```
 
-* This project uses [Dotenv]()
+* This project uses [Dotenv](https://github.com/bkeepers/dotenv)
 * Use `rake secret` to generate a new secret key and put it into `.env` as `SECRET_KEY_BASE_DEVELOPMENT`, `SECRET_KEY_BASE_TEST` and `SECRET_KEY_DEVISE`
 
 ## Deployment
@@ -24,7 +24,7 @@ rake deploy:production
 
 ## Testing
 
-Just do `rspec`
+Just run `rspec`
 
 ## License
 
