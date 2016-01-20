@@ -1,9 +1,14 @@
 <%= simple_form_for @vote do |f| %>
   <%= f.input :value, collection: 1..5,
+              wrapper_html: { id: 'rating-radio-group' },
               label: 'Rating',
               item_wrapper_class: 'radio-wrapper',
               as: :radio_buttons %>
   <%= error_span(@vote[:value]) %>
+
+  <div id="rating-warning" class="alert alert-warning" style="display: none">
+    <strong>Hey!</strong> Your opinion is important for us!
+  </div>
 
   <%= f.input :comment %>
   <%= error_span(@vote[:comment]) %>
