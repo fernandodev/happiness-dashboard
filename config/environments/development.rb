@@ -22,7 +22,7 @@ Rails.application.configure do
     :password => ENV['MAILTRAP_PASSWORD'],
     :address => 'mailtrap.io',
     :domain => 'mailtrap.io',
-    :port => '2525',
+    :port => '25',
     :authentication => :cram_md5
   }
 
